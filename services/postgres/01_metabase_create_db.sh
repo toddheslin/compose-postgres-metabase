@@ -7,4 +7,6 @@ POSTGRES="psql --username postgres"
 echo "Creating database: metabase"
 $POSTGRES <<EOSQL
 CREATE DATABASE metabase OWNER metabase;
+-- if database already exists, set owner to database
+ALTER DATABASE metabase OWNER TO metabase;
 EOSQL
